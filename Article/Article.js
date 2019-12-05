@@ -116,6 +116,7 @@ function createArticle(title,date,paragraph1,paragraph2,paragraph3){
    
     // define new elements
    const atricleContainer = document.createElement('div');
+    const articleClose = document.createElement('p');
     const articleTitle = document.createElement('h2');
     const articleDate = document.createElement('p');
     const p1 = document.createElement('p');
@@ -127,8 +128,10 @@ function createArticle(title,date,paragraph1,paragraph2,paragraph3){
     atricleContainer.classList.add('article');
     articleTitle.classList.add('date');
     expandButton.classList.add('expandButton');
+    articleClose.classList.add('close');
 
     // setup structure of the elements
+    atricleContainer.appendChild(articleClose);
     atricleContainer.appendChild(articleTitle);
     atricleContainer.appendChild(articleDate);
     atricleContainer.appendChild(p1);
@@ -142,6 +145,12 @@ function createArticle(title,date,paragraph1,paragraph2,paragraph3){
     p1.textContent = paragraph1;
     p2.textContent = paragraph2;
     p3.textContent = paragraph3;
+    articleClose.textContent = 'X';
+
+    articleClose.addEventListener("click",  () =>{
+
+        atricleContainer.style.display = "none";
+    })
 
 
     return atricleContainer
